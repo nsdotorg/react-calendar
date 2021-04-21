@@ -21,16 +21,6 @@ export const fetchDataFromIndexedDB = () => {
   return eventsList;
 };
 
-// export const rows = [];
-
-// function getRows() {
-//   for (let i = 0; i < 24; i++) {
-//     rows.push(i);
-//   }
-// }
-
-// getRows();
-
 export const getRows = () => {
   const rows = [];
   for (let i = 0; i < 24; i++) {
