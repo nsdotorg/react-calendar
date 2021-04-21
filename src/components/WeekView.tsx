@@ -36,12 +36,12 @@ const useStyles = makeStyles({
   },
 });
 
-const week = [];
+const week: moment.Moment[] = [];
 for (let i = 0; i <= 6; i++) {
   week.push(moment().add(i, "days"));
 }
 
-const getPreviousWeek = (currentWeek) => {
+const getPreviousWeek = (currentWeek: moment.Moment[]) => {
   const previousWeek = [];
   for (let i = 0; i <= 6; i++) {
     previousWeek.push(currentWeek[i].clone().subtract(7, "days"));
@@ -49,7 +49,7 @@ const getPreviousWeek = (currentWeek) => {
   return previousWeek;
 };
 
-const getNextWeek = (currentWeek) => {
+const getNextWeek = (currentWeek: moment.Moment[]) => {
   const nextWeek = [];
   for (let i = 0; i <= 6; i++) {
     nextWeek.push(currentWeek[i].clone().add(7, "days"));
@@ -65,14 +65,12 @@ const WeekView = () => {
   );
   const [nextWeek, setNextWeek] = useState(getNextWeek(currentWeek));
 
-  const cellRefs = useRef([]);
-  cellRefs.current = [];
-
   const classes = useStyles();
 
   const previousWeekHandler = () => {
     cellRefs.current.forEach((el) => {
-      el.innerHTML = ``;
+      let cellNode = el as HTMLElement;
+      cellNode.innerHTML = "";
     });
     setPreviousWeek(getPreviousWeek(previousWeek));
     setCurrentWeek(getPreviousWeek(currentWeek));
@@ -81,48 +79,53 @@ const WeekView = () => {
 
   const nextWeekHandler = () => {
     cellRefs.current.forEach((el) => {
-      el.innerHTML = ``;
+      let cellNode = el as HTMLElement;
+      cellNode.innerHTML = "";
     });
     setNextWeek(getNextWeek(nextWeek));
     setCurrentWeek(getNextWeek(currentWeek));
     setPreviousWeek(currentWeek);
   };
 
-  const addRefs = (el) => {
-    if (el && !cellRefs.current.includes(el)) {
-      cellRefs.current.push(el);
+  const cellRefs = useRef([]);
+  cellRefs.current = [];
+
+  const addRefs = (el: any): any => {
+    if (el && !cellRefs.current.includes(el as never)) {
+      cellRefs.current.push(el as never);
     }
   };
 
   useEffect(() => {
     Promise.all(getData()).then((values) => {
       values.forEach((event) => {
-        // console.log(`${event.startTime}:${event.date}:${event.title}`);
-        cellRefs.current.forEach((cell) => {
+        cellRefs.current.forEach((cell: HTMLElement) => {
           if (
-            event.startTime.toString() &&
-            event.date.toString() &&
+            event !== null &&
             event.startTime.toString() === cell.classList[1].split("c")[1] &&
             event.date.toString() === cell.classList[1].split("c")[2]
           ) {
             if (event.duration === 30) {
-              cell.innerHTML =
-                cell.innerHTML +
+              let cellNode = cell as HTMLElement;
+              cellNode.innerHTML =
+                cellNode.innerHTML +
                 `<p class="event" style="height:50%">${event.title}<br/>(${event.duration} min)</p>`;
             } else if (event.duration === 45) {
-              cell.innerHTML =
-                cell.innerHTML +
+              let cellNode = cell as HTMLElement;
+              cellNode.innerHTML =
+                cellNode.innerHTML +
                 `<p class="event" style="height:75%">${event.title}<br/>(${event.duration} min)</p>`;
             } else if (event.duration === 60) {
-              cell.innerHTML =
-                cell.innerHTML +
+              let cellNode = cell as HTMLElement;
+              cellNode.innerHTML =
+                cellNode.innerHTML +
                 `<p class="event" style="height:100%">${event.title}<br/>(${event.duration} min)</p>`;
             }
           }
         });
       });
     });
-  }, [currentWeek]);
+  }, [currentWeek, previousWeek, nextWeek]);
 
   const columns = [
     {
@@ -164,7 +167,11 @@ const WeekView = () => {
   return (
     <>
       <CalendarContainer>
-        {/* <h1 style={{ textAlign: "center", color: "#fff" }}>CALENDAR</h1> */}
+        <h1
+          style={{ textAlign: "center", color: "#fff", marginBottom: "1rem" }}
+        >
+          CALENDAR
+        </h1>
         <ButtonGroup aria-label="outlined primary button group">
           <Button
             variant="contained"

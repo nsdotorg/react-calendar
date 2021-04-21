@@ -96,6 +96,12 @@
     "duration": 45
   },
   {
+    "title": "John Doe",
+    "date": "2021-04-21",
+    "startTime": 3,
+    "duration": 45
+  },
+  {
     "title": "Jonathon Bayer",
     "date": "2021-04-08",
     "startTime": 19,
@@ -175,8 +181,8 @@
   },
   {
     "title": "Garry Gutmann",
-    "date": "2021-04-14",
-    "startTime": 8,
+    "date": "2021-04-16",
+    "startTime": 3,
     "duration": 30
   },
   {

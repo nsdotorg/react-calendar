@@ -10,11 +10,18 @@ eventsArray.forEach((event, key) => {
   myStore.setItem(String(key), event);
 });
 
+type Event = {
+  title: String;
+  date: String;
+  startTime: Number;
+  duration: Number;
+};
+
 export const fetchDataFromIndexedDB = () => {
-  let eventsList = [];
+  let eventsList: Promise<Event | null>[] = [];
   if (eventsArray.length > 0) {
     eventsArray.forEach((event, key) => {
-      const result = myStore.getItem(String(key));
+      let result: Promise<Event | null> = myStore.getItem(String(key));
       eventsList.push(result);
     });
   }
