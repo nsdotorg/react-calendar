@@ -17,25 +17,19 @@ code {
     monospace;
 }
 
-td {
-  border: 1px solid #efefef;
-  position: relative;
-  padding: 0 !important;
-  height: inherit !important;
-}
-
 .event-cell {
   height: 100%;
   width: 100%;
   display: flex;
+  color: #fff;
 }
 .event {
-  border: 1px solid #ddd;
   display: flex;
-  width: 100%;
+  width: 99%;
+  height: 99%;
   align-items: center;
   justify-content: center;
-  background: #f50057;
+  background: #323f56;
   color: #fff;
 }
 .event-time {
@@ -44,7 +38,37 @@ td {
   height: auto;
   top: 0;
 }
-.MuiTableContainer-root,
-.makeStyles-container-2 {
-  max-height: calc(100vh - 36px) !important;
+
+.MuiTableContainer-root {
+  background: #1f2533;
+  color: #fff !important;
+}
+
+.MuiTableCell-root {
+  border-bottom: 1px solid #1f2533 !important;
+}
+
+td {
+  border-bottom: 1px solid #323f56 !important;
+  position: relative;
+  padding: 0 !important;
+  height: inherit !important;
+  box-sizing: border-box;
+}
+
+.MuiButtonBase-root {
+  background: #323f56 !important;
+  color: #fff !important;
+}
+
+.MuiButtonBase-root:hover {
+  color: #323f56 !important;
+  background: #fff !important;
+}
+
+.MuiTableCell-root:first-child {
+  background: #1a1c23 !important;
+}
+.MuiTableCell-root:not(first-child) {
+  border-bottom: 1px solid #323f56 !important;
 }

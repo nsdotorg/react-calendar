@@ -6,12 +6,13 @@ import WeekView from "./WeekView";
 const CalendarWrapper = styled.section`
   padding: 0;
   margin: 0;
-  width: 100vw;
+  width: 80vw;
+  margin: 0 auto;
   min-height: 100vh;
-  // background: #00a8f4;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
 `;
 
 const Calendar = () => {

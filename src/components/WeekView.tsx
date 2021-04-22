@@ -18,11 +18,12 @@ import { fetchDataFromIndexedDB as getData, getRows } from "../data/fetch";
 const CalendarContainer = styled.section`
   display: flex;
   flex-direction: column;
-  width: 100vw;
-  height: 100vh;
+  width: 80vw;
+  overflow: hidden;
   border-radius: 0;
   padding: 0;
   margin: 0;
+  box-shadow: 0 10px 10px #1a1c23;
 `;
 
 const useStyles = makeStyles({
@@ -58,7 +59,6 @@ const getNextWeek = (currentWeek: moment.Moment[]) => {
   return nextWeek;
 };
 
-// component starts here
 const WeekView = () => {
   const [currentWeek, setCurrentWeek] = useState(week);
   const [previousWeek, setPreviousWeek] = useState(
@@ -167,24 +167,29 @@ const WeekView = () => {
 
   return (
     <>
-      <CalendarContainer>
-        {/* <h1
-          style={{ textAlign: "center", color: "#fff", marginBottom: "1rem" }}
+      <h1
+        style={{
+          textAlign: "center",
+          color: "#000",
+          marginBottom: "1rem",
+          width: "100%",
+        }}
+      >
+        CALENDAR
+      </h1>
+      <ButtonGroup aria-label="outlined default button group">
+        <Button
+          variant="contained"
+          color="default"
+          onClick={previousWeekHandler}
         >
-          CALENDAR
-        </h1> */}
-        <ButtonGroup aria-label="outlined primary button group">
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={previousWeekHandler}
-          >
-            Previous Week
-          </Button>
-          <Button variant="contained" color="primary" onClick={nextWeekHandler}>
-            Next Week
-          </Button>
-        </ButtonGroup>
+          Previous Week
+        </Button>
+        <Button variant="contained" color="default" onClick={nextWeekHandler}>
+          Next Week
+        </Button>
+      </ButtonGroup>
+      <CalendarContainer>
         <Paper className={classes.root}>
           <TableContainer className={classes.container}>
             <Table stickyHeader aria-label="sticky table">
@@ -197,8 +202,8 @@ const WeekView = () => {
                         align="center"
                         style={{
                           minWidth: 100,
-                          backgroundColor: "#FFEB3B",
-                          color: "#000",
+                          backgroundColor: "#1a1c23",
+                          color: "#fff",
                         }}
                         width="10%"
                       >
@@ -210,7 +215,7 @@ const WeekView = () => {
                         align="center"
                         style={{
                           minWidth: 100,
-                          backgroundColor: "#1a73e8",
+                          backgroundColor: "#1a1c23",
                           color: "#fff",
                         }}
                         width="10%"
