@@ -90,7 +90,7 @@ const WeekView = () => {
   const cellRefs = useRef([]);
   cellRefs.current = [];
 
-  const addRefs = (el: any): any => {
+  const addRefs = (el: HTMLDivElement): void => {
     if (el && !cellRefs.current.includes(el as never)) {
       cellRefs.current.push(el as never);
     }
