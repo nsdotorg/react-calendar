@@ -47,3 +47,6 @@ td {
 .makeStyles-container-2 {
   max-height: calc(100vh - 36px) !important;
 }
+.MuiTableContainer-root {
+  max-height: 100vh !important;
+}
