@@ -10,9 +10,9 @@ const CalendarWrapper = styled.section`
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  flex-direction: column;
 `;
 
 const Calendar = () => {
