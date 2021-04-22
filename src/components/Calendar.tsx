@@ -8,7 +8,7 @@ const CalendarWrapper = styled.section`
   margin: 0;
   width: 100vw;
   min-height: 100vh;
-  background: #00a8f4;
+  // background: #00a8f4;
   display: flex;
   justify-content: center;
   align-items: center;

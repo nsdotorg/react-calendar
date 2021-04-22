@@ -19,6 +19,7 @@ const CalendarContainer = styled.section`
   display: flex;
   flex-direction: column;
   width: 100vw;
+  height: 100vh;
   border-radius: 0;
   padding: 0;
   margin: 0;
@@ -167,11 +168,11 @@ const WeekView = () => {
   return (
     <>
       <CalendarContainer>
-        <h1
+        {/* <h1
           style={{ textAlign: "center", color: "#fff", marginBottom: "1rem" }}
         >
           CALENDAR
-        </h1>
+        </h1> */}
         <ButtonGroup aria-label="outlined primary button group">
           <Button
             variant="contained"

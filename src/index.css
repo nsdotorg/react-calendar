@@ -44,3 +44,6 @@ td {
   height: auto;
   top: 0;
 }
+.makeStyles-container-2 {
+  max-height: calc(100vh - 36px) !important;
+}
