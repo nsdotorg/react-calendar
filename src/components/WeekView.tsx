@@ -18,7 +18,7 @@ import { fetchDataFromIndexedDB as getData, getRows } from "../data/fetch";
 const CalendarContainer = styled.section`
   display: flex;
   flex-direction: column;
-  width: 90vw;
+  width: 100vw;
   border-radius: 0;
   padding: 0;
   margin: 0;
